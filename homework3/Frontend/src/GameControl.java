@@ -26,7 +26,7 @@ public class GameControl {
 				 if(c=='v')
 				 {
 					 new WebService().fetchWorlds(2);
-//					 new WebService().fetchClass(2);
+					 new WebService().fetchClass(2);
 				 }
 				 if(c=='b')
 				 {

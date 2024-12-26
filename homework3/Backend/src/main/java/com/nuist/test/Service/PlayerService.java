@@ -28,11 +28,10 @@ public class PlayerService {
 		PlayerTable playerTable=playerDAO.findByPid(pid);
 		return playerTable.getWorlds();
 	}
-	public Optional<ClassTable> getClassByPlayerCid(int playerCid) {
-		return playerDAO.findByCid(playerCid)
-						.map(player -> {
-							return getClassTableByCid(player.getCid());
-						});
+
+	public ClassTable getClass(Integer pid) {
+		PlayerTable playerTable=playerDAO.findByPid(pid);
+		return playerTable.getClassTable();
 	}
 
 	private ClassTable getClassTableByCid(int cid) {

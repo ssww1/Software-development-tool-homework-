@@ -97,10 +97,10 @@ public class WebService {
 			e.printStackTrace();
 		}
 	}
-	void fetchClass(int cid) {
+	void fetchClass(int pid) {
 		try {
-			String classId = URLEncoder.encode(Integer.toString(cid), "UTF-8");
-			String url = "http://localhost:8080/class?cid=" + classId;
+			String id = URLEncoder.encode(Integer.toString(pid), "UTF-8");
+			String url = "http://localhost:8080/class?pid=" + id;
 			URL obj = new URL(url);
 			HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 			con.setRequestMethod("GET");

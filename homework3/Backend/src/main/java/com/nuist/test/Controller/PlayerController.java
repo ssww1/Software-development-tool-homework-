@@ -37,9 +37,6 @@ public class PlayerController {
 		return worldService.allPlayers(Integer.parseInt(wid));
 	}
 	@GetMapping("/class")
-	public ResponseEntity<ClassTable> getClassByPlayerCid(@PathVariable int playerCid) {
-		Optional<ClassTable> classTable = playerService.getClassByPlayerCid(playerCid);
-		return classTable.map(ResponseEntity::ok)
-						 .orElseGet(() -> ResponseEntity.notFound().build());
+	public ClassTable getClassByPlayerCid(String pid) { return playerService.getClass(Integer.parseInt(pid));
 	}
 }

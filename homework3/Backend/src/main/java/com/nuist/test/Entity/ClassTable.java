@@ -1,17 +1,19 @@
 package com.nuist.test.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Column;
+import javax.persistence.*;
 
 @Entity
+@Table(name="class")
 public class ClassTable {
 
     @Id
     private int cid;
 
-    @Column(nullable = false)
+    @Column(name="classname")
     private String classname;
+
+    @OneToMany(mappedBy = "classTable")
+
 
     // Getters and Setters
     public int getCid() {

@@ -8,6 +8,5 @@ import com.nuist.test.Entity.ClassTable;
 public interface PlayerDAO extends JpaRepository<PlayerTable, Integer> {
 	PlayerTable findByPid(Integer pid);
 	PlayerTable findByUsernameAndPassword(String username,String password);
-	Optional<PlayerTable> findByCid(int cid);
 }
 

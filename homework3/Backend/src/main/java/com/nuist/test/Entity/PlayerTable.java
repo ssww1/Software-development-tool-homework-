@@ -20,8 +20,6 @@ public class PlayerTable {
 	private String username;
 	@Column(name = "password")
 	private String password;
-	@Column(name = "cid")
-	private Integer cid;
 	@ManyToMany
 	@JoinTable(name = "player_world", 
 			joinColumns = @JoinColumn(name = "pid"), 
@@ -29,7 +27,12 @@ public class PlayerTable {
 	)
 	@JsonBackReference
 	private Set<WorldTable> worlds = new HashSet<>();
-
+	@ManyToOne
+	@JoinColumn(name = "cid", referencedColumnName = "cid")
+	private ClassTable classTable;
+	public ClassTable getClassTable() {
+		return classTable;
+	}
 
 	public Integer getPid() {
 		return pid;
@@ -55,13 +58,7 @@ public class PlayerTable {
 		this.password = password;
 	}
 
-	public Integer getCid() {
-		return cid;
-	}
 
-	public void setCid(Integer cid) {
-		this.cid = cid;
-	}
 
 	public Set<WorldTable> getWorlds() {
 		return worlds;
